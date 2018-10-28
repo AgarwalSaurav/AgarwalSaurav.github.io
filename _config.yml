@@ -10,7 +10,9 @@ locale                   : "en-US"
 title                    : "Saurav Agarwal"
 title_separator          : "-"
 name                     : &name "Saurav Agarwal"
-description              : &description "PhD student\\ Department of Computer Science\\ University of North Carolina at Charlotte"
+description              : &description "Ph.D. student
+Department of Computer Science
+University of North Carolina at Charlotte"
 url                      : https://AgarwalSaurav.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "AgarwalSaurav.github.io"
