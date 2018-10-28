@@ -11,8 +11,8 @@ redirect_from:
 
 Education
 ======
-* B. Tech. in Mechanical Engineering, National Institute of Technology, Durgapur, India, 2013
-* Ph.D in Computing and Informatics System, University of North Carolina at Charlotte, USA, 2021 (expected)
+* B.Tech. in Mechanical Engineering, National Institute of Technology, Durgapur, India, 2013
+* Ph.D. in Computer Science, University of North Carolina at Charlotte, USA, 2021 (expected)
 
 Work experience
 ======
