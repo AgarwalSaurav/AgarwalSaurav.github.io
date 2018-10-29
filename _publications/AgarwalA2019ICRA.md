@@ -1,7 +1,7 @@
 ---
 title: "Line Coverage with Multiple Robots as a Capacitated Arc Routing Problem"
 collection: publications
-permalink: /publication/AgarwalA2019ICRA.md
+permalink: /publication/AgarwalA2019ICRA
 excerpt: '<ul> <li>  Approach for large scale line coverage problems with multiple robots formulated as Arc Routing Problem<li>  Consideration of practical factors such as battery capacity, wind speed <li> Development of Integer Linear Programming model and heuristic algorithms'
 date: 2018-05-20
 venue: 'IEEE International Conference on Robotics and Automation'
