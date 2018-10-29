@@ -7,6 +7,7 @@ date: 2018-05-20
 venue: 'IEEE International Conference on Robotics and Automation'
 paperPDF: /files/AgarwalA18ICRA.pdf
 paperBib: /files/Agarwal.bib#AgarwalA18ICRA
+paperVideo: https://www.youtube.com/watch?v=3MK7MCU2AeU
 citation: 'Saurav Agarwal and Srinivas Akella, &quot;Simultaneous Optimization of Assignments and Goal Formations for Multiple Robots&quot; in <i>IEEE International Conference on Robotics and Automation</i>, May 2018.'
 ---
 ### Abstract
