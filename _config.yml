@@ -240,7 +240,7 @@ defaults:
   # _researchProjects
   - scope:
       path: ""
-      type: portfolio
+      type: researchProjects
     values:
       layout: splash
       author_profile: false
