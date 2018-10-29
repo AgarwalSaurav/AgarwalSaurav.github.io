@@ -8,8 +8,7 @@ date: 2017-10-01
 paperPDF: /files/AgarwalB17.pdf
 paperBib: /files/Agarwal.bib#AgarwalB17
 paperVideo: 
-citation: 'Saurav Agarwal and Sandipan Bandyopadhyay, &quot;Design of six-bar function generators using dual-order structural error and analytical mobility
-criteria&quot; in <i>Mechanism and Machine Theory, Elsevier</i>, pp. 326–351, vol. 116, Oct. 2017.'
+citation: 'Saurav Agarwal and Sandipan Bandyopadhyay, &quot;Design of six-bar function generators using dual-order structural error and analytical mobility criteria&quot; in <i>Mechanism and Machine Theory, Elsevier</i>, pp. 326–351, vol. 116, Oct. 2017.'
 ---
 ### Abstract
 ---
