@@ -27,6 +27,7 @@ space, leading to a very efficient computational scheme. The results obtained ar
 accuracy as compared to the reported results in existing literature. The formulation and
 results are demonstrated in the context of the Watt-II and the Stephenson-III mechanisms.
 </div>
+<img src="../files/vid_double_dwell.gif" alt="Double-dwell">
 
  [//]: #  [Download paper here](http://academicpages.github.io/files/paper1.pdf) 
 
