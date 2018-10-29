@@ -199,9 +199,9 @@ defaults:
     values:
       layout: single
       author_profile: false
-      read_time: true
-      comments: true
-      share: true
+      read_time: false
+      comments: false
+      share: false
       related: true
   # _pages
   - scope:
@@ -217,8 +217,8 @@ defaults:
     values:
       layout: single
       author_profile: false
-      share: true
-      comments: true
+      share: false
+      comments: false
   # _publications
   - scope:
       path: ""

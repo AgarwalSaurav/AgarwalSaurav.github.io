@@ -5,7 +5,7 @@ permalink: /publication/AgarwalA2019ICRA
 excerpt: '<ul> <li>  Approach for large scale line coverage problems with multiple robots formulated as Arc Routing Problem<li>  Consideration of practical factors such as battery capacity, wind speed <li> Development of Integer Linear Programming model and heuristic algorithms'
 date: 2018-05-20
 venue: 'IEEE International Conference on Robotics and Automation'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
+paperPDF: 
 citation: 'Saurav Agarwal and Srinivas Akella, &quot;Line Coverage with Multiple Robots as a Capacitated Arc Routing Problem,&quot; in <i>IEEE International Conference on Robotics and Automation</i>, May 2019 (under review).'
 ---
 ## Abstract
@@ -34,6 +34,5 @@ approach, including graph simplification, on a large graph with
 of 16 sq. km. We present an analysis of the solutions and the
 computation times of the algorithms.
 
-> [Download paper here](http://academicpages.github.io/files/paper1.pdf)
+ [//]: #  [Download paper here](http://academicpages.github.io/files/paper1.pdf) 
 
-> Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>JJournal 1</i>. 1(1).
