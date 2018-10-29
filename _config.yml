@@ -226,8 +226,8 @@ defaults:
     values:
       layout: single
       author_profile: false
-      share: true
-      comments: true
+      share: false
+      comments: false
   # _portfolio
   - scope:
       path: ""
@@ -235,8 +235,8 @@ defaults:
     values:
       layout: splash
       author_profile: false
-      share: true
-      comment: true
+      share: false
+      comment: false
   # _researchProjects
   - scope:
       path: ""
