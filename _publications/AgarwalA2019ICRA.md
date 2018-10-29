@@ -9,6 +9,7 @@ paperPDF:
 citation: 'Saurav Agarwal and Srinivas Akella, &quot;Line Coverage with Multiple Robots as a Capacitated Arc Routing Problem,&quot; in <i>IEEE International Conference on Robotics and Automation</i>, May 2019 (under review).'
 ---
 ## Abstract
+<div style="text-align: justify"> 
 This paper presents an approach for solving large-
 scale line coverage problems with multiple robots by formu-
 lating them as Capacitated Arc Routing Problems (CARP).
@@ -33,6 +34,7 @@ approach, including graph simplification, on a large graph with
 4,828 vertices and 4,971 edges that represents an urban region
 of 16 sq. km. We present an analysis of the solutions and the
 computation times of the algorithms.
+</div>
 
  [//]: #  [Download paper here](http://academicpages.github.io/files/paper1.pdf) 
 

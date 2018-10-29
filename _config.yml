@@ -224,7 +224,7 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: single
+      layout: single-pub
       author_profile: false
       share: false
       comments: false
