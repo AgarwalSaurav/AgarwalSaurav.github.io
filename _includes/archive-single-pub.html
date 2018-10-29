@@ -46,10 +46,14 @@
 
 
 		{% if post.citation %}
-		<p>{{ post.citation }}</p>
-		{% endif %}
-		{% if post.paperPDF %}
-		<p><a href="PDF"><u>{{ post.paperPDF }}</u></a></p>
+			<p>{{ post.citation }}
+			{% if post.paperPDF %}
+			<a href="{{ base_path }}{{ post.paperPDF }}"><u>PDF</u></a> 
+			{% endif %}
+			{% if post.paperBib %}
+			&nbsp;<a href="{{ base_path }}{{ post.paperBib }}"><u>bib</u></a>
+			{% endif %}
+			</p>
 		{% endif %}
 
 	</article>
