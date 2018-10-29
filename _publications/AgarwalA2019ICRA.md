@@ -8,7 +8,8 @@ venue: 'IEEE International Conference on Robotics and Automation'
 paperPDF: 
 citation: 'Saurav Agarwal and Srinivas Akella, &quot;Line Coverage with Multiple Robots as a Capacitated Arc Routing Problem,&quot; in <i>IEEE International Conference on Robotics and Automation</i>, May 2019 (under review).'
 ---
-## Abstract
+### Abstract
+---
 <div style="text-align: justify"> 
 This paper presents an approach for solving large-
 scale line coverage problems with multiple robots by formu-
