@@ -13,10 +13,17 @@ redirect_from:
 I am a PhD student at the Department of Computer Science, University of North Carolina at Charlotte. I am part of the Robotics Laboratory. 
 My research focus is on Motion Planning for Multiple Robots. Specifically, I am developing algorithms to solve Arc Routing Problems for Robotics applications. 
 </p>	
-
+<h2>Research Highlight</h2>
+<h3>Coverage of Linear Features</h3>
+<div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px">
+ <video width="750" autoplay loop controls>
+  <source src="files/milp.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+</div>
 <p>
-The line coverage problem using multiple aerial robots requires the robots to collect data from a given network of lines, which may be from a road network or power line network.
-My research focuses on developing algorithm that reduce the mission time required to survey a network of linear features.
+The <strong>line coverage problem using multiple robots</strong> requires the robots to collect data from a given network of lines, which may be from a road network or power line network.
+My research focuses on developing algorithms that reduce the mission time required to survey a network of linear features.
 I also ensure that the amount of data gathered is significantly less than from the corresponding area coverage.
 This reduces the amount of computation required to analyze the environment thereby allowing quick analysis and deployment of resources.
 </p>
@@ -25,5 +32,37 @@ This reduces the amount of computation required to analyze the environment there
 I am working on developing core heuristic algorithms that solve the line coverage problem efficiently and, characterizing the quality of the heuristic solutions when compared to the optimal solutions.
 My next step is to design real-time intelligent systems while incorporating practical constraints, such as line-of-sight constraints, collision avoidance and non-holonomic nature of certain robots.
 </p>
-
+<hr>
+<h3>Variable Formation</h3>
+<div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px">
+ <video width="750" autoplay loop controls>
+  <source src="files/vF_2d.mp4" type="video/mp4" >
+Your browser does not support the video tag.
+</video> 
+</div>
+<p>
+We present algorithms to simultaneously compute the optimal assignments and formation parameters for
+a team of robots from a given initial formation to a variable
+goal formation (where the shape of the goal formation is given,
+and its scale and location parameters must be optimized). We
+assume the $n$ robots are identical spheres. We use the sum
+of squared travel distances as the objective function to be
+minimized, which also ensures that the trajectories are collision
+free. We show that this assignment with variable goal formation
+problem can be transformed to a linear sum assignment problem
+(LSAP) with pseudo costs that we establish are independent of
+the formation parameters. The transformed problem can then
+be solved using the Hungarian algorithm in $O(n^3)$ time. Thus
+the assignment problem with variable goal formations using
+this new approach has the same $O(n^3)$ time complexity as
+the standard assignment problem with fixed goal formations.
+Results from simulations on 200 and 600 robots are presented to
+show the algorithm is sufficiently fast for practical applications.
+</p>
+<div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px">
+ <video width="750" autoplay loop controls>
+  <source src="files/vF_3d.mp4" type="video/mp4" >
+Your browser does not support the video tag.
+</video> 
+</div>
 </div>
