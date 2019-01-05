@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "About me"
-excerpt: "About me"
+excerpt: ""
 author_profile: true
 redirect_from: 
   - /about/
@@ -13,55 +13,53 @@ redirect_from:
 I am a PhD student at the Department of Computer Science, University of North Carolina at Charlotte. I am part of the Robotics Laboratory. 
 My research focus is on Motion Planning for Multiple Robots. Specifically, I am developing algorithms to solve Arc Routing Problems for Robotics applications. 
 </p>	
-<h2>Research Highlight</h2>
-<h3>Coverage of Linear Features</h3>
-<div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px">
- <video width="750" autoplay loop controls>
+<!-- <h2>Research Highlight</h2> -->
+<h2>Coverage of Linear Features using Multiple Robots</h2>
+<div align="center" style="background-color: black; padding-top: 6px; padding-bottom: 2px; padding-right: 6px; padding-left: 6px">
+ <video width="100%" height="auto" loop controls id="myvideo" >
   <source src="files/milp.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 </div>
-<p>
-The <strong>line coverage problem using multiple robots</strong> requires the robots to collect data from a given network of lines, which may be from a road network or power line network.
-My research focuses on developing algorithms that reduce the mission time required to survey a network of linear features.
-I also ensure that the amount of data gathered is significantly less than from the corresponding area coverage.
-This reduces the amount of computation required to analyze the environment thereby allowing quick analysis and deployment of resources.
-</p>
 
+<br></br>
 <p>
-I am working on developing core heuristic algorithms that solve the line coverage problem efficiently and, characterizing the quality of the heuristic solutions when compared to the optimal solutions.
-My next step is to design real-time intelligent systems while incorporating practical constraints, such as line-of-sight constraints, collision avoidance and non-holonomic nature of certain robots.
-</p>
+Development of algorithms for <strong>coverage of linear features using multiple robots</strong>: 
+<ul>
+	<li>Wind considerations in computing the energy consumed while traversing</li>
+	<li>The capacity of battery is modeled as a constraint on the length of the tours</li>
+	<li>Optimize the tours for the total travel cost of all the robots</li>
+	<li>The amount of data gathered is significantly lesser than current solutions, thereby reducing the computation required to analyze the environment</li>
+	<li>Practical constraints: line-of-sight, collision avoidance, heterogeneous team of robots, etc.</li>
+	<li>Applications include inspection of road networks and power lines</li>
+</ul>
 <hr>
-<h3>Variable Formation</h3>
-<div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px">
- <video width="750" autoplay loop controls>
-  <source src="files/vF_2d.mp4" type="video/mp4" >
+<h2>Variable Formation</h2>
+<!-- <div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px"> -->
+<div align="center" style="background-color: black; padding-top: 0px; padding-bottom: 0px; padding-right: 6px; padding-left: 6px">
+ <video width="100%" height="auto" loop controls>
+  <source src="files/vf_2d.mp4" type="video/mp4" >
 Your browser does not support the video tag.
 </video> 
 </div>
+<br></br>
 <p>
-We present algorithms to simultaneously compute the optimal assignments and formation parameters for
+Development of algorithms to simultaneously compute the optimal assignments and formation parameters for
 a team of robots from a given initial formation to a variable
-goal formation (where the shape of the goal formation is given,
-and its scale and location parameters must be optimized). We
-assume the $n$ robots are identical spheres. We use the sum
-of squared travel distances as the objective function to be
-minimized, which also ensures that the trajectories are collision
-free. We show that this assignment with variable goal formation
-problem can be transformed to a linear sum assignment problem
-(LSAP) with pseudo costs that we establish are independent of
-the formation parameters. The transformed problem can then
-be solved using the Hungarian algorithm in $O(n^3)$ time. Thus
-the assignment problem with variable goal formations using
-this new approach has the same $O(n^3)$ time complexity as
-the standard assignment problem with fixed goal formations.
-Results from simulations on 200 and 600 robots are presented to
-show the algorithm is sufficiently fast for practical applications.
-</p>
-<div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px">
- <video width="750" autoplay loop controls>
-  <source src="files/vF_3d.mp4" type="video/mp4" >
+goal formation.
+<ul>
+	<li>The shape of goal formation is provided as input</li>
+	<li>The scale and location parameters for the goal formation is optimized</li>
+	<li>Optimal assignments of the robots to the goal positions</li>
+	<li>Sum of squared travel distance is minimized</li>
+	<li>Guaranteed collision-free trajectories</li>
+	<li>Robots start simultaneously and reach their goal positions simultaneously</li>
+	<li>$O(n^3)$ running time complexity</li>
+</ul>
+<!-- <div align="center" style="background-color: black; padding-top: 10px; padding-bottom: 6px"> -->
+<div align="center" style="background-color: black; padding-top: 6px; padding-bottom: 2px; padding-right: 6px; padding-left: 6px">
+ <video width="100%" height="auto" loop controls>
+  <source src="files/vf_3d.mp4" type="video/mp4" >
 Your browser does not support the video tag.
 </video> 
 </div>

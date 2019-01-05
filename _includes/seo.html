@@ -1,6 +1,8 @@
 {% include base_path %}
 
 <!-- begin SEO -->
+
+{% include analytics.html %}
 {% if site.url %}
   {% assign seo_url = site.url | append: site.baseurl %}
 {% endif %}

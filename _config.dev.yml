@@ -3,7 +3,9 @@
 url: http://localhost:4000
 
 analytics:
-  provider: false
+  provider: "google-gtag"
+  google:
+    tracking_id          : "UA-131727130-1"
 
 comments:
   disqus:

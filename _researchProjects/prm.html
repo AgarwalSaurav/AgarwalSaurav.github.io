@@ -1,0 +1,200 @@
+---
+layout: splash
+title: "Course project: Robot Motion Planning (ITCS 8152)"
+excerpt: "Path Planning for Multiple Robots with Variable Formation using Probabilistic Road Map"
+collection: researchProjects
+---
+
+{% include base_path %}
+
+<title>Motion Planning</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<script type="text/javascript" async
+				src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+<!-- <link rel="stylesheet" href="styles.css"> -->
+
+<body style="text-align: justify">
+	<h2>Path Planning for Multiple Robots with Variable Formation Using
+		Probabilistic Road Map</h2>
+<p>
+Click <a href="https://github.com/AgarwalSaurav/PRM_multipleRobots/blob/master/writeup/rmp_projectreport_sagarw10.pdf?raw=true">here</a>  for the project report.
+</p>
+
+<p>
+Click <a href="https://www.youtube.com/playlist?list=PLySW8F4iGkRa3BNzs5zvtzHTCubkhf_sg">here</a> for playlist of videos on YouTube.
+</p>
+
+<p>
+Click <a href="https://github.com/AgarwalSaurav/PRM_multipleRobots">here</a> for the latest code uploaded on GitHub.
+</p>
+<iframe width="280" height="157" src="https://www.youtube.com/embed/MEAUZOwlM_s?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p class="LaTeXMathML">
+The objective of the project is to implement and analyze Probabilistic Road Map (PRM) algorithm for motion
+planning of multiple robots with variable formation. By variable formation we mean that the robots can change
+the scale and orientation of the formation while maintaining a given shape. The system of robots hence have
+five degrees of freedom, i.e., three for translation, scale, and orientation about the \(Z\)-axis. The PRM algorithm
+is implemented as it can handle high dimensional configuration space. Additional connectivity, expansion, and
+smoothing techniques are implemented to improve upon the solutions generated. Examples of different numbers
+of robots in various shapes are considered to analyze the efficacy of the algorithm. The algorithm is implemented
+using Python 2.7 and Klamp’t motion planning framework. 
+</p>
+
+
+<h2> Introduction </h2>
+<p>
+Teams of robots often maintain a desired shape while performing tasks such as exploration,
+coverage, and surveillance. These formations can have the
+flexibility in the scale and orientation of the formation while maintaining the given
+shape. These additional degrees of freedom allows us to navigate through narrow passages
+in the environment. In this project we study an analyze the
+Probabilistic Roadmap path planning method to perform path planning in
+a static environment with obstacles.
+</p>
+<figure>
+  <img src="{{ base_path }}/images/r200.png" alt="Formation Scaling" style="width:70%;height:auto;align:middle;margin-left:auto;margin-right:auto" >
+  <figcaption style="text-align:center;">
+Fig. 1: An example of a scenario where robots need to change their scale in order to
+  pass through a narrow opening. We need to ensure that the scale parameter is computed
+  such that the robots do not collide with
+themselves.
+  </figcaption>
+</figure>
+
+<p>
+Several efficient path planning techniques exist for low dimensional configuration space. Roadmap methods in \(\mathbb R^2\) include visibility graph, which can give optimal paths, Voronoi
+roadmap which keep the path far away from the obstacles (along the medial axis). Cell
+decomposition methods divide the free configuration space of the robots into cells.
+Thereafter, a connectivity graph is created to with the cells. Given query points, a path
+is found in the connectivity graph. These methods can solve 2D configuration spaces
+efficiently. However, the as the dimension increases, the number of cells increases
+exponentially and both the space and time complexity increases. Potential field methods is
+another class of motion planning technique wherein potential functions dictate the
+motion of the robots. The goal position has an attractive potential and the obstacles
+(potentially other robots as well) have repulsive potential. The forces on the robot are
+then computed based on the potential function. The method suffers from getting stuck at
+local minima and designing potential navigation functions may not be trivial. 
+<br>
+
+All the algorithms discussed above do not perform well when the dimension of the
+configuration space increases. In general the motion planning problem is PSPACE-hard.
+Owing to this difficult, in the past decade there have been significant advances in
+sampling based techniques. One such method is Probabilistic Roadmap
+(PRM) composed of a learning phase and a query phase. The learning phase builds a roadmap and in the query
+phase shortest path in computed in the roadmap. The PRM has been shown to be effective in
+various environments with high dimensional configurations of robots. There have been
+several improvements and variants to PRM. One notable improvement is
+PRM*, which gives asymptotically optimal solutions. Other variants
+are visibility-PRM, Obstacle based-PRM etc.
+
+</p>
+<h2> Problem Description </h2>
+
+<p>
+Consider a team of \(n\) robots. These robots are arranged in a desired shape given by \( \mathbf S =(\mathbf s_j^\top), j = 1, \ldots n\) with respect to a local coordinate system attached to the system of robots. The configuration of the system of robots is given by a five dimensional vector \(\mathbf q = (x, y, z, \alpha, \theta)^\top\), where \(\mathbf q_t = (x, y, z)^\top\) defines the location in the \(\mathbb R^3\) space, \(\alpha\) is the scale parameter for the robots, and \(\theta\) is the orientation of the formation about the \(Z\)-axis. The location of the individual robots in the world coordinate system can now be written as \(\mathbf p_j = \mathbf q_t + \mathbf R \alpha \mathbf s_j\), where \(\mathbf R\) is the rotation matrix corresponding to a rotation by an angle \(\theta\) about the \(Z\)-axis. Given an initial and goal configuration, the task is then to compute an obstacle-free path in the environment.
+
+We assume the following:
+<ol>
+  <li> The robots are holonomic, i.e., they can move in any direction. </li>
+  <li>  The position of the individual robots, and thereby the position and orientation of
+    the robotic system can be obtained exactly. </li>
+  <li> The environment in 2D or 3D is static and known, i.e., the location of the obstacles are provided exactly.  </li>
+    <li> There is no error in the motion of the robots, i.e., the robots move exactly as commanded.  </li>
+
+</ol>
+</p>
+
+<h2>Probabilistic Roadmap</h2>
+<p>
+We use Probabilistic Roadmap (PRM), a sampling based technique, for creating a {\em roadmap} in the configuration space of the robot. 
+The roadmap here refers to an undirected graph in the configuration space where in the
+nodes represent sampled configurations and the edges represent collision-free paths which the system of robots can take. 
+The weight of the edges represent the cost of travelling through the two nodes of the
+edge.
+
+The PRM and its improvement PRM* have the following characteristics which make it suitable for our problem:
+<ol>
+  <li> Probabilistically complete: probability of finding a solution (if one exist)
+    approaches to one as the running time approaches to infinity. The algorithm will generate a roadmap such that path between any two configuration points can be determined if it exists, given sufficient
+    time for running the algorithm. </li>
+    <li> Asymptotically optimal: the probability of find the optimal path (if one exist) approaches to
+    one as the running time approaches infinity. The algorithm will find the most optimal path for the query if sufficient time is given for running building the roadmap.</li>
+    <li> The PRM method can handle high-dimensional configuration space. In our problem we
+      have a five dimensional configuration space. </li>
+    <li> Once the roadmap is created, the multiple queries can be performed on the same
+      environment, which is computationally very efficient.</li>
+</ol>
+
+</p>
+<p>
+There are few caveats to the PRM method. The probabilistically complete and asymptotically
+optimal features require building an large sized graph with algorithm running for a
+long time. This also creates slower query decisions. However, in practice fewer samples
+points may be enough for generating good paths.
+
+</p>
+
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qOHP8xvm1Wc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br>
+Path planning for a single robot.
+</p>
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rNHKxymbLII?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br>
+Path planning for 10 robots arranged in a star formation.
+</p>
+<h2> Experiments </h2>
+
+<p>
+
+Running time experiments were performed to understand the variation in running time with
+the number of robots (1--10). The environment for the experiment is shown below. The
+number of samples were fixed to 2000. The maximum number of nodes to connect  from a new
+sample was set to 15. The neighbor hood distance was 0.75 times the number of robots. The
+sampling for collision detection was set to a distance of 0.04. The query time was
+averaged over 100 random queries. There were at the most 1 failure. It can be seen from
+the plots that the running time in learning phase increases with increase in the number of robots. However,
+the increase is not very steep. The number of nodes not connected to any other node also
+increases with number of robots. This is because the size of the formation increases and
+it becomes more difficult to connect configurations using collision-free path.
+
+One interesting plot is of running time of query phase. The running time first increases
+with the number of robots and then decreases. The running time is more for
+3--6 number of robots. This is because of the neighborhood distance is small 
+which causes the shortest path composed of several very small
+segments. The complexity of the smoothing process is proportional to the number of
+segments in the shortest path. Hence, the running time increases for smaller number of
+robots. The running time increases for 1--4 robots because the collision detection is
+implemented to ensure the paths are collision free.
+
+</p>
+
+<figure>
+  <img src="{{ base_path }}/images/lT_plot.png" alt="Formation Scaling" width="80%" >
+  <figcaption style="text-align:center;">
+    Fig. 2: Variation of running time of learning phase with number of robots.
+  </figcaption>
+</figure>
+<figure>
+	<img src="{{ base_path  }}/images/qT_plot.png" alt="Formation Scaling" width="80%" >
+  <figcaption style="text-align:center;">
+   Fig. 3:  Variation of running time of query phase with number of robots.
+  </figcaption>
+</figure>
+
+<figure>
+	<img src="{{ base_path }}/images/cc_plot.png" alt="Formation Scaling" width="640">
+  <figcaption style="text-align:center;">
+  Fig 4:  Variation of number of connected components with number of robots.
+  </figcaption>
+</figure>
+<figure>
+  <img src="{{ base_path }}/images/ccn_plot.png" alt="Formation Scaling" width="640">
+  <figcaption style="text-align:center;">
+   Fig. 5: Variation of number of unconnected nodes with number of robots.
+  </figcaption>
+</figure>
+
+</body>

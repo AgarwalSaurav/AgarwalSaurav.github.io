@@ -7,6 +7,28 @@ html {
   min-height: 100%;
 }
 
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+
 body {
   margin: 0;
   padding: 0;
@@ -59,6 +81,7 @@ small, .small {
 
 p {
   margin-bottom: 1.3em;
+	align: justify;
 }
 
 u,
@@ -153,13 +176,25 @@ td > code {
 
 /* horizontal rule */
 
-hr {
-  display: block;
-  margin: 1em 0;
-  border: 0;
-  border-top: 1px solid $border-color;
-}
+// hr {
+//   display: block;
+//   margin: 1em 0;
+//   border: 0;
+//   border-top: 1px solid $border-color;
+// }
 
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
 /* lists */
 
 ul li,
@@ -199,11 +234,11 @@ figure {
     border-radius: $border-radius;
     -webkit-transition: $global-transition;
     transition: $global-transition;
+		align:middle;
   }
-
-  > a {
-    display: block;
-  }
+	> a {
+		display: block;
+	}
 
   &.half {
     > a,
@@ -304,7 +339,47 @@ nav {
     margin-top: 0;
   }
 }
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
 
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+figcaption {
+    display: table-caption;
+    caption-side: bottom;
+    background: #fff;
+    padding: 0 5px 5px;
+    font-size: 18px;
+    text-align: justify;
+}
 /*
    Global animation transition
    ========================================================================== */
